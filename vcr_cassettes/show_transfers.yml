@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox.moip.com.br/v2/transfers/TRA-8PBO743QDU9W
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 29 Oct 2017 19:49:48 GMT
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGBIWUFhABAMREWxNQwtcRRQadCBtSBNNA0xUGgdPVlIMCwhWUloGHQdKRgBTV1EHWgBUVAsBXQhSCwNHFQdQDUAHOQ==
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1416'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"fee":0,"amount":500,"updatedAt":"2017-10-27T16:50:27.000Z","id":"TRA-8PBO743QDU9W","transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"id":"BKA-22IFEOPZJAJB","agencyNumber":"1111","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"9999","accountCheckNumber":"8","bankName":"BANCO
+        DO BRASIL S.A.","type":"CHECKING","agencyCheckNumber":"2","bankNumber":"001"}},"status":"COMPLETED","events":[{"createdAt":"2017-10-27T16:50:26.000Z","description":"Requested","type":"TRANSFER.REQUESTED"},{"createdAt":"2017-10-27T16:50:26.000Z","description":"Completed","type":"TRANSFER.COMPLETED"}],"createdAt":"2017-10-27T16:50:27.000Z","entries":[{"external_id":"ENT-CFWRTWPU6ZWL","reschedule":[],"scheduledFor":"2017-10-27T16:50:26.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[],"type":"TRANSFER_TO_BANK_ACCOUNT","grossAmount":-500,"moipAccountId":4477,"updatedAt":"2017-10-27T16:50:27.000Z","id":36608753,"installment":{"amount":1,"number":1},"references":[{"value":"APP-MOIPSANDBOXX","type":"CHANNEL"}],"eventId":"TRA-8PBO743QDU9W","createdAt":"2017-10-27T16:50:27.000Z","description":"Transferencia
+        para conta bancaria - TRA-8PBO743QDU9W","blocked":false,"settledAt":"2017-10-27T16:50:27.000Z","liquidAmount":-500}],"role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-8PBO743QDU9W"}}}'
+    http_version: 
+  recorded_at: Sun, 29 Oct 2017 17:49:47 GMT
+recorded_with: VCR 2.9.3

@@ -10,11 +10,12 @@ module Moip2
       "/v2/transfers"
     end
 
-    def show
+    def show(id)
+      Resource::Transfers.new client, client.get("#{base_path}/#{id}")
     end
 
     def find_all
-      Resource::Transfers.new @client, @client.get("#{base_path}")
+      Resource::Transfers.new client, client.get("#{base_path}")
     end
   end
 end

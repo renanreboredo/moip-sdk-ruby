@@ -2,30 +2,38 @@ describe Moip2::TransfersApi do
   let(:transfers_api) { described_class.new(sandbox_oauth_client) }
 
   describe "#show" do
-    # let(:created_transfers_show) do
-    #   VCR.use_cassette("show_entries") do
-    #       transfers_api.show("ENT-2JHP5A593QSW")
-    #   end
-    # end
-
-    xit "show specific transfers" do
-      expect(created_transfers_show.description).to eq "Cartao de credito - Pedido ORD-UF4E00XMFDL1"
+    let(:created_transfers_show) do
+      VCR.use_cassette("show_transfers") do
+          transfers_api.show("TRA-8PBO743QDU9W")
+      end
     end
 
-    xit "verify if amount present" do
-      expect(created_transfers_show.installment.amount).to eq 1
+    it "show specific transfer" do
+      expect(created_transfers_show.id).to eq "TRA-8PBO743QDU9W"
     end
 
-    xit "verify if amount type present" do
-      expect(created_transfers_show.type).to eq "CREDIT_CARD"
+    it "verify if fee is present" do
+      expect(created_transfers_show.fee).to eq 0
     end
 
-    xit "verify if status present" do
-      expect(created_transfers_show["status"]).to eq "SETTLED"
+    it "verify if amount is present" do
+      expect(created_transfers_show.amount).to eq 500
     end
 
-    xit "verify if events present" do
-      expect(created_transfers_show.event_id).to eq "PAY-AQITTDNDKBU9"
+    it "verify if status is present" do
+      expect(created_transfers_show.status).to eq "COMPLETED"
+    end
+
+    it "verify if transferInstrument present" do
+      expect(created_transfers_show.transfer_instrument['method']).to eq "BANK_ACCOUNT"
+    end
+
+    it "verify if events are present" do
+      expect(created_transfers_show.events).not_to eq nil
+    end
+
+    it "verify if entries are present" do
+      expect(created_transfers_show.entries).not_to eq nil
     end
   end
 
@@ -36,9 +44,8 @@ describe Moip2::TransfersApi do
       end
     end
 
-    it "find all entries" do
-      response = created_transfers_find_all['transfers'] 
-      expect(response.count).to eq(20)
-    end
+    it { expect(created_transfers_find_all).to be_a(Moip2::Resource::Transfers) }
+    it { expect(created_transfers_find_all).to_not be_nil }
+    it { expect(created_transfers_find_all['transfers'].count).to eq 20}
   end
 end
