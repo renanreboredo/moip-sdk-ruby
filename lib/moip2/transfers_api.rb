@@ -10,6 +10,10 @@ module Moip2
       "/v2/transfers"
     end
 
+    def create(transfer)
+      Resource::Transfers.new client, client.post("#{base_path}", transfer)
+    end
+
     def show(id)
       Resource::Transfers.new client, client.get("#{base_path}/#{id}")
     end

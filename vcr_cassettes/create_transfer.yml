@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox.moip.com.br/v2/transfers
+    body:
+      encoding: UTF-8
+      string: '{"amount":1000,"transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"type":"CHECKING","bankNumber":"001","agencyNumber":"1111","agencyCheckNumber":"2","accountNumber":"9999","accountCheckNumber":"8","holder":{"fullname":"Nome
+        do Portador","taxDocument":{"type":"CPF","number":"22222222222"}}}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - OAuth 9fdc242631454d4c95d82e27b4127394_v2
+      User-Agent:
+      - MoipRubySDK/1.0.0 (+https://github.com/moip/moip-sdk-ruby)
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Sun, 29 Oct 2017 20:25:03 GMT
+      Server:
+      - Apache
+      Status:
+      - 201 Created
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgMEUUYdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGBIWUFhABAMRERBKaC1rbB0QH1UXUR1THVNTAgNXX1QUAABWTUBRBVUFAlVVBQBXVgYEWwEHGhRSU18WXDw=
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1324'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+    body:
+      encoding: UTF-8
+      string: '{"fee":0,"amount":1000,"updatedAt":"2017-10-29T20:25:01.752Z","id":"TRA-18UC7OQVJAZL","transferInstrument":{"method":"BANK_ACCOUNT","bankAccount":{"id":"BKA-Z5AQ0I4GIF9W","agencyNumber":"1111","holder":{"taxDocument":{"number":"255.328.259-12","type":"CPF"},"fullname":"Jose
+        Silva dos Santos"},"accountNumber":"9999","accountCheckNumber":"8","bankName":"BANCO
+        DO BRASIL S.A.","type":"CHECKING","agencyCheckNumber":"2","bankNumber":"001"}},"status":"REQUESTED","events":[{"createdAt":"2017-10-29T20:25:03.000Z","description":"Requested","type":"TRANSFER.REQUESTED"}],"createdAt":"2017-10-29T20:25:01.752Z","entries":[{"external_id":"ENT-WT75V140C5V7","reschedule":[],"scheduledFor":"2017-10-29T20:25:01.000Z","status":"SETTLED","moipAccount":{"account":"MPA-CULBBYHD11"},"fees":[],"type":"TRANSFER_TO_BANK_ACCOUNT","grossAmount":-1000,"moipAccountId":4477,"updatedAt":"2017-10-29T20:25:03.887Z","id":36609107,"installment":{"amount":1,"number":1},"references":[{"value":"APP-NNG199LXR2AV","type":"CHANNEL"}],"eventId":"TRA-18UC7OQVJAZL","createdAt":"2017-10-29T20:25:03.863Z","description":"Transferencia
+        para conta bancaria - TRA-18UC7OQVJAZL","blocked":false,"settledAt":"2017-10-29T20:25:03.887Z","liquidAmount":-1000}],"role":"PAYER","_links":{"self":{"href":"https://sandbox.moip.com.br/v2/transfers/TRA-18UC7OQVJAZL"}}}'
+    http_version: 
+  recorded_at: Sun, 29 Oct 2017 18:25:03 GMT
+recorded_with: VCR 2.9.3
