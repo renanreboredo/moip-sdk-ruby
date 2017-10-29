@@ -11,7 +11,7 @@ module Moip2
     end
 
     def create(transfer)
-      Resource::Transfers.new client, client.post("#{base_path}", transfer)
+      Resource::Transfers.new client, client.post(base_path, transfer)
     end
 
     def show(id)
@@ -19,7 +19,7 @@ module Moip2
     end
 
     def find_all
-      Resource::Transfers.new client, client.get("#{base_path}")
+      Resource::Transfers.new client, client.get(base_path)
     end
   end
 end
